@@ -67,6 +67,8 @@ spec:
         - name: init
           mountPath: /docker-entrypoint-initdb.d
         {{- end }}
+        - name: timezone-config
+          mountPath: /etc/localtime
       volumes:
       - name: data
       {{- if .Values.persistence.enabled }}
@@ -88,6 +90,9 @@ spec:
         configMap:
           name: {{ template "influxdb.fullname" . }}-init
       {{- end }}
+      - name: timezone-config
+        hostPath:
+          path: /usr/share/zoneinfo/Asia/Seoul
     {{- if .Values.schedulerName }}
       schedulerName: "{{ .Values.schedulerName }}"
     {{- end }}
