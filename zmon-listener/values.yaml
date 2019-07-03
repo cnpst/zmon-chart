@@ -57,7 +57,7 @@ config:
     omit_hostname: false
   inputs:
    ## listener input
-    - influxdb_listener:
+    - http_listener:
         service_address: ":18080"
         # todo insert tenantID
         basic_username: "{ tenantID }"
