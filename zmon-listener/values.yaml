@@ -55,6 +55,12 @@ config:
     logfile: ""
     hostname: "telegraf-polling-service"
     omit_hostname: false
+
+  aggregators:
+    - final:
+        period: "1m"
+        drop_original: true
+        series_timeout: "5s"
   inputs:
    ## listener input
     - http_listener:
@@ -65,12 +71,6 @@ config:
         basic_password: ""
         read_timeout: "10s"
         write_timeout: "10s"
-
-  aggregators:
-    - final:
-        period: "1m"
-        drop_original: true
-        series_timeout: "5s"
 
   outputs:
     ## listener output
