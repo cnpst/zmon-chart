@@ -65,11 +65,12 @@ config:
        basic_password: ""
        read_timeout: "10s"
        write_timeout: "10s"
+
   aggregators:
-    - final:
-        period: "1m"
-        drop_original: true
-        series_timeout: "5s"
+   - final:
+       period: "1m"
+       drop_original: true
+       series_timeout: "5s"
 
   outputs:
    ## listener output
