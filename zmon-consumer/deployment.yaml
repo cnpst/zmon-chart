@@ -29,6 +29,8 @@ spec:
         - name: varrunutmpro
           mountPath: /var/run/utmp
           readOnly: true
+        - name: timezone-config
+          mountPath: /etc/localtime
     {{- with .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}
@@ -48,3 +50,6 @@ spec:
       - name: config
         configMap:
           name: {{ .Release.Name }}
+      - name: timezone-config
+        hostPath:
+          path: /usr/share/zoneinfo/Asia/Seoul

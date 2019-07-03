@@ -2,8 +2,8 @@
 ## This is a YAML-formatted file.
 ## ref: https://hub.docker.com/r/library/telegraf/tags/
 image:
-  repo: "telegraf"
-  tag: "1.10.4-alpine"
+  repo: "au.icr.io/zmon/zmon-listener"
+  tag: "latest"
   pullPolicy: IfNotPresent
 
 ## Configure resource requests and limits
@@ -56,52 +56,26 @@ config:
     hostname: "telegraf-polling-service"
     omit_hostname: false
   inputs:
-#    ## listener input
-#    - http_listener:
-#        service_address: ":18080"
-#        # todo insert tenantID
-#        basic_username: "{ tenantID }"
-#        # todo insert tenant password
-#        basic_password: ""
-#        read_timeout: "10s"
-#        write_timeout: "10s"
-#    ## consumer input
-#    - kafka_consumer:
-#        brokers:
-#          - "10.178.51.133:9093"
-#          - "10.178.51.136:9093"
-#          - "10.178.51.164:9093"
-#        # todo insert tenantID
-#        topics:
-#          - "telegraf__{ tenantID }"
-#        # todo insert tenantID
-#        consumer_group: "{ tenantID }_consumers"
-#        offset: "oldest"
-#        data_format: "influx"
-#        max_message_len: 0
+   ## listener input
+   - http_listener:
+       service_address: ":18080"
+       # todo insert tenantID
+       basic_username: "{ tenantID }"
+       # todo insert tenant password
+       basic_password: ""
+       read_timeout: "10s"
+       write_timeout: "10s"
 
   outputs:
-#    ## listener output
-#    - kafka:
-#        brokers:
-#          - "10.178.51.133:9093"
-#          - "10.178.51.136:9093"
-#          - "10.178.51.164:9093"
-#        # todo insert tenantID
-#        topic: "telegraf__{ tenantID }"
-#        compression_codec: 0
-#        required_acks: -1
-#        max_retry: 3
-#        data_format: "influx"
-#    ## consumer output
-#    - influxdb:
-#        urls:
-#          - "http://10.178.51.131:8086"
-#        # todo insert tenantID
-#        database: "zmon_{ tenantID }"
-#        retention_policy: ""
-#        write_consistency: "any"
-#        timeout: "30s"
-#        username: "onmadm"
-#        # todo insert influx password
-#        password: ""
+   ## listener output
+   - kafka:
+       brokers:
+         - "10.178.51.133:9093"
+         - "10.178.51.136:9093"
+         - "10.178.51.164:9093"
+       # todo insert tenantID
+       topic: "telegraf__{ tenantID }"
+       compression_codec: 0
+       required_acks: -1
+       max_retry: 3
+       data_format: "influx"
