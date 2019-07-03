@@ -2,8 +2,8 @@
 ## This is a YAML-formatted file.
 ## ref: https://hub.docker.com/r/library/telegraf/tags/
 image:
-  repo: "au.icr.io/zmon/zmon-listener"
-  tag: "latest"
+  repo: "registry.au-syd.bluemix.net/zmon/zmon-listener"
+  tag: "1.11.1"
   pullPolicy: IfNotPresent
 
 ## Configure resource requests and limits
