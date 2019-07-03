@@ -57,31 +57,31 @@ config:
     omit_hostname: false
   inputs:
    ## listener input
-   - influxdb_listener:
-       service_address: ":18080"
-       # todo insert tenantID
-       basic_username: "{ tenantID }"
-       # todo insert tenant password
-       basic_password: ""
-       read_timeout: "10s"
-       write_timeout: "10s"
+    - influxdb_listener:
+        service_address: ":18080"
+        # todo insert tenantID
+        basic_username: "{ tenantID }"
+        # todo insert tenant password
+        basic_password: ""
+        read_timeout: "10s"
+        write_timeout: "10s"
 
   aggregators:
-   - final:
-       period: "1m"
-       drop_original: true
-       series_timeout: "5s"
+    - final:
+        period: "1m"
+        drop_original: true
+        series_timeout: "5s"
 
   outputs:
-   ## listener output
-   - kafka:
-       brokers:
-         - "10.178.51.133:9093"
-         - "10.178.51.136:9093"
-         - "10.178.51.164:9093"
-       # todo insert tenantID
-       topic: "telegraf__{ tenantID }"
-       compression_codec: 0
-       required_acks: -1
-       max_retry: 3
-       data_format: "influx"
+    ## listener output
+    - kafka:
+        brokers:
+          - "10.178.51.133:9093"
+          - "10.178.51.136:9093"
+          - "10.178.51.164:9093"
+        # todo insert tenantID
+        topic: "telegraf__{ tenantID }"
+        compression_codec: 0
+        required_acks: -1
+        max_retry: 3
+        data_format: "influx"
