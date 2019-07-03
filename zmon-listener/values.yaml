@@ -57,7 +57,7 @@ config:
     omit_hostname: false
   inputs:
    ## listener input
-   - http_listener:
+   - influxdb_listener:
        service_address: ":18080"
        # todo insert tenantID
        basic_username: "{ tenantID }"
@@ -65,6 +65,11 @@ config:
        basic_password: ""
        read_timeout: "10s"
        write_timeout: "10s"
+  aggregators:
+    - final:
+        period: "1m"
+        drop_original: true
+        series_timeout: "5s"
 
   outputs:
    ## listener output
