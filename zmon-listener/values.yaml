@@ -58,7 +58,7 @@ config:
 
   aggregators:
     - final:
-        period: "1m"
+        period: "15s"
         drop_original: true
         series_timeout: "5s"
   inputs:
