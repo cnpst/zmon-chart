@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  generation: 1
+  name: ""
+  namespace: ""
+spec:
+  tls:
+  - hosts:
+    - template.zmon.cloud
+    secretName: star-zmon-cloud
+  rules:
+  - host: template.zmon.cloud
+    http:
+      paths:
+      - backend:
+          serviceName: listener-template
+          servicePort: 18080
+        path: /
