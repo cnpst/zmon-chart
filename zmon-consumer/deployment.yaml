@@ -6,7 +6,7 @@ metadata:
     app: {{ .Release.Name }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
     release: "{{ .Release.Name }}"
-    role: "consumer"
+    role: "{{ .Values.role }}"
 spec:
   replicas: 1
   template:
