@@ -59,15 +59,17 @@ config:
   inputs:
    ## consumer input
    - kafka_consumer:
+       # url:port
        brokers:
-         - "10.178.51.133:9093"
-         - "10.178.51.136:9093"
-         - "10.178.51.164:9093"
+         - "{ kafka_1 }"
+         - "{ kafka_2 }"
+         - "{ kafka_3 }"
        # todo insert tenantID
        topics:
          - "telegraf__{ tenantID }"
        # todo insert tenantID
-       consumer_group: "{ tenantID }_consumers"
+       # consumerGroup : { tenantID }_consumers_ifx1 or 2
+       consumer_group: "{ consumerGroup }"
        offset: "oldest"
        data_format: "influx"
        max_message_len: 0
@@ -76,7 +78,8 @@ config:
    ## consumer output
    - influxdb:
        urls:
-         - "http://10.178.51.131:8086"
+         # http://url:port
+         - "{ influxdb }"
        # todo insert tenantID
        database: "zmon_{ tenantID }"
        retention_policy: ""
@@ -84,4 +87,4 @@ config:
        timeout: "30s"
        username: "onmadm"
        # todo insert influx password
-       password: ""
+       password: "{ totalPass }"

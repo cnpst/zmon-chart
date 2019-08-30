@@ -2,18 +2,20 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   generation: 1
-  name: ""
-  namespace: ""
+  name: "{ tenantID }-ingress"
+  namespace: "{ tenantID }"
 spec:
   tls:
   - hosts:
-    - template.zmon.cloud
+    # tenantID.domain
+    - { listenerHost }
     secretName: star-zmon-cloud
   rules:
-  - host: template.zmon.cloud
+    # tenantID.domain
+  - host: { listenerHost }
     http:
       paths:
       - backend:
-          serviceName: listener-template
+          serviceName: listener-{ tenantID }
           servicePort: 18080
         path: /
