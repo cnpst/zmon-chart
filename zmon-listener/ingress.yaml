@@ -4,6 +4,8 @@ metadata:
   generation: 1
   name: "{ tenantID }-ingress"
   namespace: "{ tenantID }"
+  annotations:
+    ingress.bluemix.net/client-max-body-size: size=0
 spec:
   tls:
   - hosts:
