@@ -85,6 +85,6 @@ config:
        retention_policy: ""
        write_consistency: "any"
        timeout: "30s"
-       username: "onmadm"
+       username: "{ user }"
        # todo insert influx password
-       password: "{ totalPass }"
+       password: "{ password }"

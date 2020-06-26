@@ -21,3 +21,7 @@ spec:
           serviceName: listener-{ tenantID }
           servicePort: 18080
         path: /
+      - backend:
+          serviceName: zcm-auth
+          servicePort: 3000
+        path: /zcm
