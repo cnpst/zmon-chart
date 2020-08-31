@@ -337,7 +337,7 @@ datadog:
     ## @param enabled - boolean - required
     ## Set this to true to enable system-probe agent
     #
-    enabled: false
+    enabled: true
 
     ## @param debugPort - integer - required
     ## Specify the port to expose pprof and expvar for system-probe agent
@@ -384,7 +384,7 @@ datadog:
     ## @param collectDNSStats - boolean - optional
     ## Enable DNS stat collection
     #
-    collectDNSStats: false
+    collectDNSStats: true
 
   orchestratorExplorer:
     ## @param enabled - boolean - required
