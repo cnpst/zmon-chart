@@ -115,8 +115,7 @@ datadog:
   ## @param podLabelsAsTags - list of key:value strings - optional
   ## Provide a mapping of Kubernetes Labels to Datadog Tags.
   #
-  podLabelsAsTags:
-    - "*": "kube_%%label%%"
+  podLabelsAsTags: {"*": "kube_%%label%%" }
   #   release: helm_release
   #   <KUBERNETES_LABEL>: <DATADOG_TAG_KEY>
 
@@ -201,12 +200,12 @@ datadog:
   ## Enables this to start event collection from the kubernetes API
   ## ref: https://docs.datadoghq.com/agent/kubernetes/event_collection/
   #
-  collectEvents: false
+  collectEvents: true
 
   ## @param leaderElection - boolean - optional - default: false
   ## Enables leader election mechanism for event collection.
   #
-  leaderElection: false
+  leaderElection: true
 
   ## @param leaderLeaseDuration - integer - optional - default: 60
   ## Set the lease time for leader election in second.
