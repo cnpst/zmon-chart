@@ -328,7 +328,7 @@ datadog:
     ## Set this to true to enable process collection in process monitoring agent
     ## Requires processAgent.enabled to be set to true to have any effect
     #
-    processCollection: false
+    processCollection: true
 
   ## @param systemProbe - object - required
   ## Enable systemProbe agent and provide custom configs
@@ -337,7 +337,7 @@ datadog:
     ## @param enabled - boolean - required
     ## Set this to true to enable system-probe agent
     #
-    enabled: true
+    enabled: false
 
     ## @param debugPort - integer - required
     ## Specify the port to expose pprof and expvar for system-probe agent
@@ -384,7 +384,7 @@ datadog:
     ## @param collectDNSStats - boolean - optional
     ## Enable DNS stat collection
     #
-    collectDNSStats: true
+    collectDNSStats: false
 
   orchestratorExplorer:
     ## @param enabled - boolean - required
