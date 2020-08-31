@@ -115,8 +115,8 @@ datadog:
   ## @param podLabelsAsTags - list of key:value strings - optional
   ## Provide a mapping of Kubernetes Labels to Datadog Tags.
   #
-  podLabelsAsTags: {"*": "kube_%%label%%"}
-  #   app: kube_app
+  podLabelsAsTags:
+    - "*": "kube_%%label%%"
   #   release: helm_release
   #   <KUBERNETES_LABEL>: <DATADOG_TAG_KEY>
 
