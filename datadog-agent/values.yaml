@@ -132,9 +132,8 @@ datadog:
   ##
   ## Learn more about tagging: https://docs.datadoghq.com/tagging/
   #
-  tags: []
-  #   - "<KEY_1>:<VALUE_1>"
-  #   - "<KEY_2>:<VALUE_2>"
+  tags: 
+    - type: "kubernetes"
 
   ## @param dogstatsd - object - required
   ## dogstatsd configuration
