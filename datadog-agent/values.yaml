@@ -134,7 +134,7 @@ datadog:
   tags: 
     - type: "kubernetes"
 
-  containerInclude: "kube_namespace:kube-public kube_namespace:kube-system kube_namespace:zmon kube_namespace:zmon-ops"
+  containerExclude: "name:listener-.* name:consumer-.*"
 
 
   ## @param dogstatsd - object - required
