@@ -134,7 +134,7 @@ datadog:
   tags: 
     - type: "kubernetes"
 
-  containerExclude: "name:listener-.* name:consumer-.*"
+  containerInclude: "name:grafana-.* name:chronograf-.* name:tcp-collector-.* name:zmon-.* name: health-check-.*"
 
 
   ## @param dogstatsd - object - required
