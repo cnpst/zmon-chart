@@ -796,7 +796,8 @@ agents:
     ## @param securityContext - object - required
     ## Provide securityContext configuration
     #
-    securityContext:
+    seLinuxContext:
+      rule: MustRunAs
       seLinuxOptions:
         user: system_u
         role: system_r
