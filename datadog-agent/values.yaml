@@ -136,6 +136,7 @@ datadog:
 
   containerExclude: "name:.*"
   containerInclude: "name:^zmon-.*"
+  containerExcludeLogs: "image:^au.icr.io/zmon/zmon-watcher-.*"
 
 
   ## @param dogstatsd - object - required
