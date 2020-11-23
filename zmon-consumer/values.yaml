@@ -66,7 +66,7 @@ config:
          - "{ kafka_3 }"
        # todo insert tenantID
        topics:
-         - "telegraf__{ tenantID }"
+         - "{ kafkaTopic }"
        # todo insert tenantID
        # consumerGroup : { tenantID }_consumers_ifx1 or 2
        consumer_group: "{ consumerGroup }"

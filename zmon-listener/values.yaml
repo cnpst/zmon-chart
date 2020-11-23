@@ -80,7 +80,7 @@ config:
           - "{ kafka_2 }"
           - "{ kafka_3 }"
         # todo insert tenantID
-        topic: "telegraf__{ tenantID }"
+        topic: "{ kafkaTopic }"
         compression_codec: 0
         required_acks: -1
         max_retry: 3
