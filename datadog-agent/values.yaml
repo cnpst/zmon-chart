@@ -135,7 +135,7 @@ datadog:
     - type: "kubernetes"
 
   containerExclude: "name:.*"
-  containerInclude: "name:^zmon-.*"
+  containerInclude: "name:^zmon-.* name:^health-.*"
   containerExcludeLogs: "image:^au.icr.io/zmon/zmon-watcher-.*"
 
 
