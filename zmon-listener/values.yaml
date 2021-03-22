@@ -3,7 +3,7 @@
 ## ref: https://hub.docker.com/r/library/telegraf/tags/
 image:
   repo: "registry.au-syd.bluemix.net/zmon/zmon-listener"
-  tag: "1.11.1-1"
+  tag: "1.18.0-0"
   pullPolicy: IfNotPresent
 
 ## Configure resource requests and limits
