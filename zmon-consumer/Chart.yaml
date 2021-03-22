@@ -1,5 +1,5 @@
 name: zmon-consumer
-version: 1.11.1
+version: 1.18.0
 description: Telegraf is an agent written in Go for collecting, processing, aggregating, and writing metrics.
 keywords:
 - telegraf
