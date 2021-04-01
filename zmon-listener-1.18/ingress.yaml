@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  generation: 1
+  name: "{ tenantID }-ingress"
+  namespace: "{ tenantID }"
+  annotations:
+    ingress.bluemix.net/client-max-body-size: size=0
+spec:
+  tls:
+  - hosts:
+    # tenantID.domain
+    - { listenerHost }
+    secretName: star-zmon-cloud
+  rules:
+    # tenantID.domain
+  - host: { listenerHost }
+    http:
+      paths:
+      - backend:
+          serviceName: listener-{ tenantID }
+          servicePort: 18080
+        path: /

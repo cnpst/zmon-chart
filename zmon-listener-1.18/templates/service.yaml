@@ -24,6 +24,11 @@ spec:
     targetPort: {{ trimPrefix ":" $value.service_address | int64 }}
     name: "http-listener"
     {{- end }}
+    {{- if eq $key "influxdb_listener" }}
+  - port: {{ trimPrefix ":" $value.service_address | int64 }}
+    targetPort: {{ trimPrefix ":" $value.service_address | int64 }}
+    name: "influxdb-listener"
+    {{- end }}
     {{- if eq $key "statsd" }}
   - port: {{ trimPrefix ":" $value.service_address | int64 }}
     targetPort: {{ trimPrefix ":" $value.service_address | int64 }}
@@ -49,6 +54,8 @@ spec:
   {{- end -}}
   {{- end }}
   selector:
-    app: {{ .Release.Name }}
+    app.kubernetes.io/name: {{ .Release.Name }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    # app: {{ .Release.Name }}
 {{- end -}}
 {{- end -}}
