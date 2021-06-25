@@ -3,7 +3,7 @@
 ## ref: https://hub.docker.com/r/library/telegraf/tags/
 image:
   repo: "registry.au-syd.bluemix.net/zmon/zmon-listener"
-  tag: "1.18.0-0"
+  tag: "1.11.1-1"
   pullPolicy: IfNotPresent
 
 ## Configure resource requests and limits
@@ -80,7 +80,7 @@ config:
           - "{ kafka_2 }"
           - "{ kafka_3 }"
         # todo insert tenantID
-        topic: "telegraf__{ tenantID }"
+        topic: "{ kafka_topic }"
         compression_codec: 0
         required_acks: -1
         max_retry: 3

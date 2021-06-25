@@ -41,3 +41,13 @@ spec:
       - name: timezone-config
         hostPath:
           path: /usr/share/zoneinfo/Asia/Seoul
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - {{ .Release.Name }}
+              topologyKey: kubernetes.io/hostname
