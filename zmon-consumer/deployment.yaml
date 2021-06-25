@@ -42,3 +42,7 @@ spec:
       - name: timezone-config
         hostPath:
           path: /usr/share/zoneinfo/Asia/Seoul
+    {{- with .Values.affinity }}
+      affinity:
+  {{ toYaml . | indent 8 }}
+    {{- end }}

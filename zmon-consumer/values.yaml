@@ -1,5 +1,4 @@
 role: "{ role }"
-antiAffinityTarget: "{ antiAffinityTarget }"
 ## Default values.yaml for Telegraf
 ## This is a YAML-formatted file.
 ## ref: https://hub.docker.com/r/library/telegraf/tags/
@@ -28,7 +27,16 @@ tolerations: []
 
 ## Affinity for pod assignment
 ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-affinity: {}
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app
+              operator: In
+              values:
+                - "{ antiAffinityTarget }"
+        topologyKey: kubernetes.io/hostname
 
 ## Configure the service for this telegraf instance. If you are running
 ## Any of the service plugins you will need this enabled
